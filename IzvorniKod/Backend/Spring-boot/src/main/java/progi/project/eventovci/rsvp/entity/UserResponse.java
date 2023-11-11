@@ -1,9 +1,6 @@
 package progi.project.eventovci.rsvp.entity;
 
 import jakarta.persistence.*;
-import progi.project.eventovci.event.entity.Event;
-import progi.project.eventovci.user.entity.User;
-
 import java.lang.*;
 import java.util.Objects;
 
@@ -16,22 +13,14 @@ public class UserResponse {
     @Column(name="iddolaskakorisnika")
     private Long id;
 
-    @Column(name="statusdolaska", nullable = false)
+    @Column(name="statusdolaska")
     private String status; // OPCIJE: "dolazim", "mozda", "ne dolazim"
 
-    @Column(name="iddogadjanja", nullable = false)
+    @Column(name="iddogadjanja")
     private Long event_id;
 
-    @Column(name="idkorisnik", nullable = false)
+    @Column(name="idkorisnik")
     private Long user_id;
-
-    @ManyToOne
-    @JoinColumn(name = "iddogadjanja", referencedColumnName = "iddogadjanja", insertable = false, updatable = false)
-    private Event event;
-
-    @ManyToOne
-    @JoinColumn(name = "idkorisnik", referencedColumnName = "id", insertable = false, updatable = false)
-    private User user;
 
     //konstruktor
 

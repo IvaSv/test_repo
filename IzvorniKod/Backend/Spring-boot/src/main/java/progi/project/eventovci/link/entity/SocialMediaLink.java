@@ -1,8 +1,6 @@
 package progi.project.eventovci.link.entity;
 
 import jakarta.persistence.*;
-import progi.project.eventovci.user.entity.User;
-
 import java.lang.Long;
 import java.util.Objects;
 
@@ -15,15 +13,11 @@ public class SocialMediaLink {
     @Column(name="idpoveznice")
     private Long id;
 
-    @Column(name="organizatorid", nullable = false)
+    @Column(name="organizatorid")
     private Long eventCoordinatorId;
 
-    @Column(name="link",nullable = false)
+    @Column(name="link")
     private String link;
-
-    @ManyToOne
-    @JoinColumn(name = "organizatorid", referencedColumnName = "id", insertable = false, updatable = false)
-    private User organizator;
 
 
     //konstruktor

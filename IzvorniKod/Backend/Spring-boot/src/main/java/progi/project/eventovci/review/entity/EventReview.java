@@ -1,9 +1,6 @@
 package progi.project.eventovci.review.entity;
 
 import jakarta.persistence.*;
-import progi.project.eventovci.event.entity.Event;
-import progi.project.eventovci.user.entity.User;
-
 import java.lang.*;
 import java.util.Objects;
 
@@ -16,25 +13,17 @@ public class EventReview {
     @Column(name="idrecenzije")
     private Long id;
 
-    @Column(name = "recenzijatekst", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "recenzijatekst")
     private String reviewText;
 
-    @Column(name="ocjena",  nullable = false)
+    @Column(name="ocjena")
     private Integer grade;
 
-    @Column(name="iddogadjanja",  nullable = false)
+    @Column(name="iddogadjanja")
     private Long eventId;
 
-    @Column(name="idkorisnik",  nullable = false)
+    @Column(name="idkorisnik")
     private Long userId;
-
-    @ManyToOne
-    @JoinColumn(name = "iddogadjanja", referencedColumnName = "iddogadjanja", insertable = false, updatable = false)
-    private Event event;
-
-    @ManyToOne
-    @JoinColumn(name = "idkorisnik", referencedColumnName = "id", insertable = false, updatable = false)
-    private User user;
 
 
     //konstruktor

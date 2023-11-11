@@ -1,9 +1,6 @@
 package progi.project.eventovci.event.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import progi.project.eventovci.user.entity.User;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,40 +17,31 @@ public class Event {
     @Column(name="iddogadjanja")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name="nazivdogadjanja")
-    @NotBlank
     private String eventName;
 
     @Column(name="tipdogadjanja")
-    @NotBlank
     private String typeOfEvent;
 
     @Column(name="lokacijadogadjanja")
-    @NotBlank
     private String location;
 
 
     @Column(name="vrijemedogadjanja")
-    @NotBlank
     private LocalDateTime timeOfTheEvent;
 
     @Column(name="trajanje")
     private Double duration;
 
     @Column(name="organizatorid")
-    @NotNull
     private Long eventCoordinatorid;
 
     @Column(name="cijenaulaznice")
-    @NotNull
     private Double ticketPrice;// 0 - besplatan dogadjaj
 
-    @Column(name = "opis", length=1500)
+    @Column(name = "opis")
     private String text;
-
-    @ManyToOne
-    @JoinColumn(name = "organizatorid", referencedColumnName = "id", insertable = false, updatable = false)
-    private User organizator;
 
 
     //konstruktor

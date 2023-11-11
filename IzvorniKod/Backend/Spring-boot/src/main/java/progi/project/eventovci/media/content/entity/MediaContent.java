@@ -2,8 +2,6 @@ package progi.project.eventovci.media.content.entity;
 
 
 import jakarta.persistence.*;
-import progi.project.eventovci.event.entity.Event;
-
 import java.lang.Long;
 import java.util.Objects;
 
@@ -16,15 +14,11 @@ public class MediaContent {
     @Column(name="idmedijskogsadrzaja")
     private Long id;
 
-    @Column(name="medijskisadrzaj", nullable = false)
+    @Column(name="medijskisadrzaj")
     private byte[] content;
 
     @Column(name="iddogadjanja")
     private Long eventid;
-
-    @ManyToOne
-    @JoinColumn(name = "iddogadjanja", referencedColumnName = "iddogadjanja", insertable = false, updatable = false)
-    private Event dogadjanje;
 
     //konstruktor
     public MediaContent() {
